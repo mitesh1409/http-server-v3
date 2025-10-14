@@ -1,0 +1,24 @@
+{
+  "name": "http-server-v3",
+  "version": "1.0.0",
+  "description": "## Features",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitesh1409/http-server-v3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mitesh1409/http-server-v3/issues"
+  },
+  "homepage": "https://github.com/mitesh1409/http-server-v3#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
