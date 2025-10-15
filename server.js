@@ -19,6 +19,10 @@ const HOSTNAME = '127.0.0.1';
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Middlewares
+// Serve static files/assets from the public directory.
+app.use(express.static('public'));
+
 app.get('/api/greetings', greetings);
 app.get('/mission', mission);
 
