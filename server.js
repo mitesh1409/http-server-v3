@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 import { greetings } from './controllers/greetings.controller.js';
 import { mission } from './controllers/mission.controller.js';
+import { staticRouter } from './routes/static.router.js';
 
 // Create an Express App.
 const app = express();
@@ -23,6 +24,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Serve static files/assets from the public directory.
 app.use(express.static('public'));
 
+app.use('/', staticRouter);
 app.get('/api/greetings', greetings);
 app.get('/mission', mission);
 
