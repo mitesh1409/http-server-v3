@@ -6,6 +6,8 @@ import { greetings } from './controllers/greetings.controller.js';
 import { mission } from './controllers/mission.controller.js';
 import { staticRouter } from './routes/static.router.js';
 import { productsRouter } from './routes/products.router.js';
+import { userSignupController } from './controllers/userSignupController.js';
+import { userRouter } from './routes/user.router.js';
 
 // Create an Express App.
 const app = express();
@@ -46,12 +48,18 @@ app.use(requestTimer);
 app.use(express.static('public'));
 // for parsing application/json
 app.use(express.json());
+// Middleware to parse URL-encoded form data
+// The option extended: true is generally recommended as it allows the parsing
+// of nested objects and arrays from the form data, offering greater flexibility.
+app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger);
 
 // Routes
 app.use('/', staticRouter);
 app.use('/api/products', productsRouter);
+app.use('/api/users', userRouter);
 app.get('/api/greetings', greetings);
 app.get('/mission', mission);
+app.get('/user/sign-up', userSignupController);
 
 app.listen(PORT, HOSTNAME, () => console.log(`Server up and running at http://${HOSTNAME}:${PORT}`));
