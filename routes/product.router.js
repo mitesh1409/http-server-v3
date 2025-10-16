@@ -2,10 +2,10 @@ import express from 'express';
 
 import * as ProductController from '../controllers/productController.js';
 
-const productsRouter = express.Router();
+const productRouter = express.Router();
 
-productsRouter.use((req, res, next) => {
-    console.log('Middleware for the productsRouter...');
+productRouter.use((req, res, next) => {
+    console.log('Middleware for the productRouter...');
     next();
 });
 
@@ -18,18 +18,18 @@ productsRouter.use((req, res, next) => {
 // DELETE /products/{product} => Delete a product (e.g., by ID). D in CRUD.
 
 // POST /products => Save a product. C in CRUD.
-productsRouter.post('/', ProductController.add);
+productRouter.post('/', ProductController.add);
 
 // GET /products => Get a list of products. R in CRUD.
-productsRouter.get('/', ProductController.getAll);
+productRouter.get('/', ProductController.getAll);
 
 // GET /products/{product} => Get a product (e.g., by ID). R in CRUD.
-productsRouter.get('/:id', ProductController.getById);
+productRouter.get('/:id', ProductController.getById);
 
 // PUT/PATCH /products/{product} => Update a product (e.g., by ID). U in CRUD.
-productsRouter.patch('/:id', ProductController.update);
+productRouter.patch('/:id', ProductController.update);
 
 // DELETE /products/{product} => Delete a product (e.g., by ID). D in CRUD.
-productsRouter.delete('/:id', ProductController.remove);
+productRouter.delete('/:id', ProductController.remove);
 
-export { productsRouter };
+export { productRouter };

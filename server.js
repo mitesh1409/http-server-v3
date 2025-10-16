@@ -2,10 +2,10 @@ import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { greetings } from './controllers/greetings.controller.js';
-import { mission } from './controllers/mission.controller.js';
+import { greetingsController } from './controllers/greetingsController.js';
+import { missionController } from './controllers/missionController.js';
 import { staticRouter } from './routes/static.router.js';
-import { productsRouter } from './routes/products.router.js';
+import { productRouter } from './routes/product.router.js';
 import { userSignupController } from './controllers/userSignupController.js';
 import { userRouter } from './routes/user.router.js';
 
@@ -56,10 +56,10 @@ app.use(requestLogger);
 
 // Routes
 app.use('/', staticRouter);
-app.use('/api/products', productsRouter);
+app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
-app.get('/api/greetings', greetings);
-app.get('/mission', mission);
+app.get('/api/greetings', greetingsController);
+app.get('/mission', missionController);
 app.get('/user/sign-up', userSignupController);
 
 app.listen(PORT, HOSTNAME, () => console.log(`Server up and running at http://${HOSTNAME}:${PORT}`));
