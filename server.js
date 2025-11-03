@@ -8,6 +8,10 @@ import { staticRouter } from './routes/static.router.js';
 import { productRouter } from './routes/product.router.js';
 import { userSignupController } from './controllers/userSignupController.js';
 import { userRouter } from './routes/user.router.js';
+import { connectDB } from './config/db.js';
+
+// Connect to the Database.
+connectDB();
 
 // Create an Express App.
 const app = express();
