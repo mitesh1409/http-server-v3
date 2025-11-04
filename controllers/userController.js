@@ -31,6 +31,40 @@ async function add(req, res) {
         });
 }
 
+async function getAll(req, res) {
+    const users = await User.find();
+    console.log('users', users);
+    res
+        .status(200)
+        .json({
+            status: 'OK',
+            users: users
+        });
+}
+
+async function getById(req, res) {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+        res
+            .status(404)
+            .json({
+                status: 'Not Found'
+            });
+
+        return;
+    }
+
+    res
+        .status(200)
+        .json({
+            status: 'OK',
+            user: user
+        });
+}
+
 export {
-    add
+    add,
+    getAll,
+    getById
 };

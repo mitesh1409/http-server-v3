@@ -12,5 +12,7 @@ userRouter.use((req, res, next) => {
 
 // Define REST APIs for the user resource here.
 userRouter.post('/', UserController.add);
+userRouter.get('/', UserController.getAll);
+userRouter.get('/:id', UserController.getById);
 
 export { userRouter };
